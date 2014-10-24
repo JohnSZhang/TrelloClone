@@ -24,25 +24,57 @@
   display: block;
 }
 
+div, p, h1, li, ul {
+  border: 0;
+  padding: 0;
+  margin: 0;
+} 
+
+/* Styles */
+
+/* Overall */ 
 div.backdrop{
   background: rgb(35, 113, 159);
   height: 100%;
+  min-height: 600px;
 }
 h1 {
   color: #f6f6f6;
 }
-div.list-group-item {
-  background-color: #e3e3e3;
+
+/* Board Page */
+
+h1.board-name {
+  padding: 10px 30px 10px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
 }
 
-.list-group-item > span {
-  font-size: 22px;
+div.list-group-item {
+  background-color: #e3e3e3;
+  padding: 4px 3px 3px;
+}
+
+.list-group-item h2 {
+  font-size: 15px;
+  line-height: 18px;
   font-weight: bold;
+  margin: 0 0 4px 0;
+  padding-left: 5px;
+  min-height: 19px;
 }
 
 div.card{
   background-color: white;
-  border-radius: 7px;
+  border-radius: 4px;
+  position: relative;
+  padding: 6px 8px 8px;
+  margin-bottom: 5px;
+  max-width: 300px;
+  min-height: 20px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
 }
 
 div.card a {
@@ -50,3 +82,32 @@ div.card a {
   text-decoration: none;
   margin: 0 0 5px;
 }
+
+form.delete button{ 
+  background: none;
+  border: none;
+}
+
+form.delete {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+div.card form.delete{ 
+  display: none;
+}
+
+div.card:hover form.delete{
+  display: block;
+}
+
+.card-placeholder {
+  height: 35px;
+  display: block;
+  background-color: #939393;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  padding: 6px 8px 4px;
+}
+

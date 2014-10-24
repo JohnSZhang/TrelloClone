@@ -3,8 +3,8 @@
     <%= card.escape('title') %>
     <%= card.escape('description') %>
   </a>
-  <form>
-    <button data-id="<%= card.get("id") %>" class="deleteCard">Delete!</button>
+  <form class="delete deleteCard">
+    <button data-id="<%= card.get("id") %>" class="deleteCard">&times;</button>
   </form>
   <% if (card.items()) { %>
     <ul class="items">
