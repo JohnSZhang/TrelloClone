@@ -6,7 +6,8 @@ TrelloClone.Views.Card = Backbone.CompositeView.extend({
   template: JST['card_show'],
 
   events: {
-    "click .deleteCard": "deleteCard"
+    "click .deleteCard": "deleteCard",
+    "click .toggle-modal": "toggleModal"
   },
 
   deleteCard: function (event) {
@@ -15,15 +16,19 @@ TrelloClone.Views.Card = Backbone.CompositeView.extend({
     this.collection.get(cardId).destroy({ wait: true })
   },
 
+  toggleModal: function (event) {
+    event.preventDefault();
+    this.$('div.card-modal').toggleClass('active');
+  },
 
   render: function () {
     var self = this;
     var content = this.template({ card: this.model });
     this.$el = $(content);
-    // this.model.items().each( function (item) {
-    //   var subview = new TrelloClone.Views.Item({ model: item });
-    //   self.addSubview("ul.items", subview);
-    // });
+    this.model.items().each( function (item) {
+      var subview = new TrelloClone.Views.Item({ model: item });
+      self.addSubview("ul.items", subview);
+    });
     return this
   }
 

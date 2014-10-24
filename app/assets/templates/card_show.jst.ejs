@@ -1,13 +1,24 @@
 <div class="card">
-  <a href="#">
-    <%= card.escape('title') %>
-    <%= card.escape('description') %>
-  </a>
-  <form class="delete deleteCard">
-    <button data-id="<%= card.get("id") %>" class="deleteCard">&times;</button>
-  </form>
-  <% if (card.items()) { %>
-    <ul class="items">
-    </ul>
-  <% } %>
+  <div class="list-item">
+    <a class="toggle-modal" href="#">
+      <%= card.escape('title') %>
+      <%= card.escape('description') %>
+    </a>
+    <form class="delete deleteCard">
+      <button data-id="<%= card.get("id") %>" class="deleteCard">&times;</button>
+    </form>
+  </div>
+  <div class="card-modal modal">
+    <div class="modal-backdrop">&nbsp;
+    </div>
+    <div class="card-details">
+      <a href="#" class="toggle-modal">&times;</a>
+      <% if (card.items().length > 0) { %>
+        <ul class="items">
+        </ul>
+        <% } %>
+      </div>
+    </div>  
+  </div>
 </div>
+

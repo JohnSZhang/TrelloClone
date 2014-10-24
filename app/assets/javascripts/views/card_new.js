@@ -4,7 +4,8 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
   },
 
   events: {
-    "click .create-card": "createCard"
+    "click .create-card": "createCard",
+    "click a.toggle-new-card": "newCardForm"
   },
 
   template: JST["card_new"],
@@ -21,5 +22,14 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
     var content = this.template({ list: this.list });
     this.$el.append(content);
     return this;
+  },
+  
+  newCardForm: function (event) {
+    console.log('clicked')
+    event.preventDefault();
+    console.log()
+    this.$('.toggle-new-card.default').toggleClass('active');
+    this.$('form').toggleClass('active');
   }
+  
 })

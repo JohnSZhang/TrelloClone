@@ -1,8 +1,9 @@
-<li class="new">
-<form>
+<div class="new clear">
+<a href="#" class="toggle-new-card default active">Add a card...</a>
+<form class="card-form">
   <input name="card[list_id]" type="hidden" value="<%= list.get("id") %>">
-  <label for="title">New Card Title: </label>
-  <input id="title" name="card[title]" type="text">
-  <button class="create-card">Create!</button>
+  <textarea class="new-card-title" name="card[title]"></textarea>
+  <button class="create-card">Add</button>
+  <a href="#" class="toggle-new-card">&times;</a>
 <form>
-</li>
+</div>

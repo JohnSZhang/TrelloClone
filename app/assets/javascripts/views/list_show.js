@@ -14,7 +14,8 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 
   deleteList: function (event) {
     event.preventDefault();
-    var listId = $(event.currentTarget).data('id');
+    var listId = $(event.currentTarget).find('button').data('id');
+    console.log(listId)
     this.collection.get(listId).destroy({ wait: true })
   },
 

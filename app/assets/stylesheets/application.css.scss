@@ -16,6 +16,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+$list-radius: 5px;
+$button-bold: 14px bold "Helvetica Neue",Arial,Helvetica,sans-serif;
+
 /* RESET */
 
 .clear:after {
@@ -24,7 +27,7 @@
   display: block;
 }
 
-div, p, h1, li, ul {
+div, p, h1, li, ul, nav {
   border: 0;
   padding: 0;
   margin: 0;
@@ -37,9 +40,20 @@ div.backdrop{
   background: rgb(35, 113, 159);
   height: 100%;
   min-height: 600px;
+  width: 100%;
+  position: absolute;
 }
 h1 {
   color: #f6f6f6;
+}
+
+.active {
+  display: block;
+}
+
+/* Top Nav */
+.navbar {
+  margin-bottom: 0;
 }
 
 /* Board Page */
@@ -51,30 +65,36 @@ h1.board-name {
   line-height: 30px;
 }
 
+/* List Item */ 
+div.list-group {
+  margin-bottom: 0;
+}
 div.list-group-item {
   background-color: #e3e3e3;
-  padding: 4px 3px 3px;
+  padding: 5px 0px 0px;
+  border: 0;
 }
 
 .list-group-item h2 {
   font-size: 15px;
   line-height: 18px;
   font-weight: bold;
-  margin: 0 0 4px 0;
-  padding-left: 5px;
+  margin: 0 0 5px 0;
+  padding-left: 10px;
   min-height: 19px;
 }
 
+/* Card Items */
+
 div.card{
   background-color: white;
-  border-radius: 4px;
+  border-radius: 5px;
   position: relative;
-  padding: 6px 8px 8px;
-  margin-bottom: 5px;
+  padding: 6px 9px 8px;
   max-width: 300px;
   min-height: 20px;
+  margin: 0 6px 5px 6px;
   border-bottom: 1px solid #ccc;
-  cursor: pointer;
 }
 
 div.card a {
@@ -111,3 +131,106 @@ div.card:hover form.delete{
   padding: 6px 8px 4px;
 }
 
+/* Card Modal */
+.modal-backdrop {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(39, 112, 155, .1);
+  position: fixed;
+  z-index: 4;
+}
+
+.card-modal.active {
+  display: block;
+}
+
+.card-modal.active .card-details {
+  display: block;
+  position: relative;
+  width: 600px;
+  min-height: 400px;
+  background-color: #f0f0f0;
+  margin: auto;
+  margin-top: 60px;
+  border-radius: 4px;
+  z-index: 5;
+  overflow: scroll;
+}
+
+.card-modal .new > .toggle-modal{
+  font-size: 30px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  top: 9;
+  right: 0;
+  color: rgba(0,0,0,.3);
+  position: absolute;
+  text-decoration: none;
+}
+
+/* New Card */
+a.toggle-new-card, form.card-form {
+  display: none;
+}
+
+a.toggle-new-card.active, 
+form.card-form.active,
+form.active > a.toggle-new-card {
+  display: block;
+}
+
+.new > a {
+  border-bottom-left-radius: $list-radius;
+  border-bottom-right-radius: $list-radius;
+  padding: 7px 10px;
+  color: #939393;
+}
+.new > a:hover{
+ background-color: #c3c3c3; 
+ color: #111;
+ text-decoration: underline;
+}
+
+textarea.new-card-title {
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  padding: 6px 9px 8px;
+  min-width: 226px;
+  min-height: 65px;
+  box-shadow: none;
+  display: block;
+  margin: 0 6px 5px 6px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  -webkit-appearance: none;
+}
+
+.card-form > button {
+  float: left;
+  margin-top: 2px;
+  padding: 5px 18px;
+  background: linear-gradient(to bottom,#24a828 0,#1b7e1e 100%);
+  color: white;
+  font-size: $button-bold;
+  border: none;
+  border-radius: $list-radius;
+  margin: 2px 4px 8px;
+}
+
+.card-form > a {
+  float: left;
+  width: 30px;
+  font-size: 30px;
+  color: #a6a6a6;
+  line-height: 31px;
+  margin-left: 4px;
+}
+
+.card-form > a:hover {
+  text-decoration: none;
+  color: #686868;
+}
