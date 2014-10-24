@@ -17,6 +17,16 @@ class List < ActiveRecord::Base
   has_many :cards, dependent: :destroy
 
   default_scope { order(:ord) }
-
-  # TODO: class method for updating orders?
+  
+  
+  def update(cards)
+    cards.gsub('[',"").gsub(']',"").split(',').each_with_index do |card, idx|
+      puts card
+      card = Card.find(card)
+      card.list = self unless card.list == self
+      card.ord = idx
+      card.save
+    end
+  end
+  
 end

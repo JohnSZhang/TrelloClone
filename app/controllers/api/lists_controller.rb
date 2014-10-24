@@ -27,6 +27,17 @@ module Api
         render json: @list.errors.full_messages, status: :unprocessable_entity
       end
     end
+    
+    def show
+      @list = List.find(params[:id])
+      render show: @list
+    end
+    
+    def reorder 
+      @list = List.find(params[:id])
+        @list.update(params[:cards])
+      render json: @list
+    end
 
     private
 

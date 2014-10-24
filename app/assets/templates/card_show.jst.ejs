@@ -1,8 +1,9 @@
-<div class="card">
+<div class="card" data-id="<%= card.escape('id') %>">
   <div class="list-item">
     <a class="toggle-modal" href="#">
       <%= card.escape('title') %>
       <%= card.escape('description') %>
+      <%= card.escape('ord') %>
     </a>
     <form class="delete deleteCard">
       <button data-id="<%= card.get("id") %>" class="deleteCard">&times;</button>

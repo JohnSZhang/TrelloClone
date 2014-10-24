@@ -13,5 +13,16 @@ TrelloClone.Models.List = Backbone.Model.extend({
       this._cards = new TrelloClone.Collections.Cards();
     }
     return this._cards
+  },
+  reorder: function (order) {
+    var self = this;
+    $.ajax({
+      url: "api/lists/" + this.id + "/order",
+      data: { cards: JSON.stringify(order)},
+      type: "patch", 
+      success: function () {
+        self.fetch();
+      }
+    });
   }
 })

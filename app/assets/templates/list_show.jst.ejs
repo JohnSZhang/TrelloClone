@@ -4,10 +4,7 @@
     <form class="delete deleteList">
       <button class="remove" data-id="<%= list.get("id") %>" class="deleteList">&times;</button>
     </form>
-    <script>
-      $($('#list-<%= list.get('id')%>-sortable').sortable({ 
-          connectWith: ".connected", placeholder: "card-placeholder" } ))
-    </script>
+
     <div id="list-<%= list.get('id')%>-sortable" class="cards list-group connected">
     </div>
   </div>

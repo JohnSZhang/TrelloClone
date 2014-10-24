@@ -25,9 +25,7 @@ TrelloClone.Views.CardNew = Backbone.View.extend({
   },
   
   newCardForm: function (event) {
-    console.log('clicked')
     event.preventDefault();
-    console.log()
     this.$('.toggle-new-card.default').toggleClass('active');
     this.$('form').toggleClass('active');
   }
