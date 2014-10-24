@@ -1,0 +1,13 @@
+<div class="card">
+  <a href="#">
+    <%= card.escape('title') %>
+    <%= card.escape('description') %>
+  </a>
+  <form>
+    <button data-id="<%= card.get("id") %>" class="deleteCard">Delete!</button>
+  </form>
+  <% if (card.items()) { %>
+    <ul class="items">
+    </ul>
+  <% } %>
+</div>

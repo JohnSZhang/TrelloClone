@@ -1,0 +1,10 @@
+<div class="list col-xs-3">
+  <div class="title list-group-item">
+    <span><%= list.escape("title") %></span>
+    <form>
+      <button class="remove" data-id="<%= list.get("id") %>" class="deleteList">Delete!</button>
+    </form>
+    <div class="cards list-group">
+    </div>
+  </div>
+</div>
