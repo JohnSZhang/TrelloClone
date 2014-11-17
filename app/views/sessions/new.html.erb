@@ -1,12 +1,28 @@
-<h1>Sign In</h1>
+<div class="sign-in">
+  <h1>Log In</h1>
 
-<form action="/session" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Email<br>
-    <input name="user[email]" type="text"><br>
-  </label><br>
-  <label>Password<br>
-    <input name="user[password]" type="password"><br>
-  </label><br>
-  <input type="submit" value="Submit" class="btn btn-primary"><br>
-</form>
+  <form action="/session" id="login" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="email">Email<br></label>
+      <input name="user[email]" type="text" id="email"><br>
+    <br>
+    <label for="password">Password<br></label>
+      <input name="user[password]" type="password" id="password"><br>
+      <br>
+    <input type="submit" value="Submit" class="btn btn-primary"><br>
+    <input id="guest-signin" type="submit" value="Guest Login" class="btn btn-primary">
+  </form>
+</div>
+
+<script charset="utf-8">
+  // For Demo Purposes
+  $(function () {
+      $("#guest-signin").on("click", function(event){
+        event.preventDefault();
+        $('#email').val("john@example.com");
+        $('#password').val("123456");
+        $('#login').submit();
+      });
+    }
+  );
+</script>

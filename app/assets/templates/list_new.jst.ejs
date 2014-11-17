@@ -1,8 +1,21 @@
-<div class="new">
-<form>
-  <input name="list[board_id]" type="hidden" value="<%= board.get("id") %>">
-  <label for="title">New List Title: </label>
-  <input id="title" name="list[title]" type="text">
-  <button class="createList">Create!</button>
-<form>
+<div class="list new-list list-group-item col-xs-3 clear">
+
+  <div class="new">
+    <a href="#" id="new-list"> Add A List</a>
+    <form id="new-list-form" class="hide">
+      <input name="list[board_id]" type="hidden" value="<%= board.get("id") %>">
+      <label for="title">New List Title: </label>
+      <input id="title" name="list[title]" type="text">
+      <button class="createList btn btn-primary">Create!</button>
+    <form>
+      <script charset="utf-8">
+        $(function(){
+          $("#new-list").on('click', function(event){
+            event.preventDefault();
+            $("#new-list-form").toggleClass('hide');
+          });
+        })
+      </script>
+  </div>
+
 </div>

@@ -1,4 +1,4 @@
 <li>
-<%= item.escape('title') %>
-<%= item.escape('done') %>
+<p class="item-title"><%= item.escape('title') %></p>
+<span class="item status"><%= item.escape('done') ? "Done" : "Working On" %></span>
 </li>

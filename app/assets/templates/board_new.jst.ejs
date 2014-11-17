@@ -1,7 +1,17 @@
-<h1>Create A New Board</h1>
-<form>
-  <label for="title">Board Title: </label>
-  <input id="title" name="board[title]" type="text">
-  <button class="createBoard">Create!</button>
-<form>
-<br>
+<div class="board">
+  <a href="#" id="new-board">Create A New Board</a>
+  <form id="new-board-form" class="hide">
+    <label for="title">Board Title: </label>
+    <input id="title" name="board[title]" type="text">
+    <button class="createBoard btn btn-primary">Create!</button>
+  <form>
+  <br>
+  <script charset="utf-8">
+    $(function(){
+      $("#new-board").on('click', function(event){
+        event.preventDefault();
+        $("#new-board-form").toggleClass('hide');
+      });
+    })
+  </script>
+</div>

@@ -31,13 +31,17 @@ div, p, h1, li, ul, nav {
   border: 0;
   padding: 0;
   margin: 0;
-} 
+}
 
 /* Styles */
 
-/* Overall */ 
+/* Overall */
+body{
+  background-color: rgb(14, 116, 175);
+}
+
 div.backdrop{
-  background: rgb(35, 113, 159);
+  background-color: rgb(14, 116, 175);
   height: 100%;
   min-height: 600px;
   width: 100%;
@@ -54,9 +58,96 @@ h1 {
 /* Top Nav */
 .navbar {
   margin-bottom: 0;
+  background: rgb(35, 113, 159);
+  border: none;
+  border-bottom: 1px solid transparent;
+
+  .navbar-header {
+    left: 50%;
+    margin-left: -50px;
+    position: relative;
+
+    a {
+      color: #efefef;
+      font-family: 'Stalemate', cursive;
+      font-size: 35px;
+      padding: 20px 0 0;
+    }
+
+    a:hover{
+      color: #e0e0e0;
+    }
+  }
+
+  .navbar-nav > li {
+    a{
+      color: #efefef;
+
+      &:hover{
+        color: #e0e0e0;
+      }
+    }
+
+  }
+  .navbar-btn {
+    font-weight: bold;
+  }
+}
+
+/* Sign In */
+
+.sign-in, .log-in {
+  padding-top: 25px;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-family: 'Stalemate', cursive;
+    font-weight: bold;
+    font-size: 25px;
+    color: #efefef;
+  }
+  input {
+    width: 100%;
+  }
 }
 
 /* Board Page */
+
+div.board, li.board {
+  display: block;
+  width: 200px;
+  height: 150px;
+  border-radius: 25px;
+  float: left;
+  padding: 20px;
+  margin: 20px;
+  a{
+    color: #efefef;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  button{
+    margin-top: 8px;
+  }
+}
+
+li.board {
+  background: #23719f;
+}
+div.board {
+  background: #bbbbbb;
+  label{
+    color: #efefef;
+  }
+}
+
+
 
 h1.board-name {
   padding: 10px 30px 10px 15px;
@@ -65,7 +156,7 @@ h1.board-name {
   line-height: 30px;
 }
 
-/* List Item */ 
+/* List Item */
 div.list-group {
   margin-bottom: 0;
 }
@@ -73,6 +164,23 @@ div.list-group-item {
   background-color: #e3e3e3;
   padding: 5px 0px 0px;
   border: 0;
+  textarea{
+    min-width: 50px;
+    width: 96%;
+  }
+}
+
+div.new-list {
+  min-height: 50px;
+  padding-top: 15px;
+
+  .new form{
+    padding: 10px;
+  }
+
+  a:hover {
+    background: none;
+  }
 }
 
 .list-group-item h2 {
@@ -82,6 +190,13 @@ div.list-group-item {
   margin: 0 0 5px 0;
   padding-left: 10px;
   min-height: 19px;
+}
+
+a.back {
+  clear: left;
+  color: #efefef;
+  float: left;
+  margin-left: 15px;
 }
 
 /* Card Items */
@@ -103,7 +218,7 @@ div.card a {
   margin: 0 0 5px;
 }
 
-form.delete button{ 
+form.delete button{
   background: none;
   border: none;
 }
@@ -114,7 +229,7 @@ form.delete {
   top: 0px;
 }
 
-div.card form.delete{ 
+div.card form.delete{
   display: none;
 }
 
@@ -171,12 +286,39 @@ div.card:hover form.delete{
   text-decoration: none;
 }
 
+.card-modal div.card-details{
+  a{
+    position:absolute;
+    right: 0px;
+    margin-right: 15px;
+    display: block;
+    float: right;
+    margin-top: 15px;
+    clear: left;
+  }
+
+  h1{
+    color: rgb(14, 116, 175);
+    margin: 10px;
+  }
+  .items {
+    margin: 15px;
+    list-style: none;
+    font-family: 'Stalemate', cursive;
+    font-weight: bold;
+
+    p{
+      font-size: 30px;
+    }
+  }
+}
+
 /* New Card */
 a.toggle-new-card, form.card-form {
   display: none;
 }
 
-a.toggle-new-card.active, 
+a.toggle-new-card.active,
 form.card-form.active,
 form.active > a.toggle-new-card {
   display: block;
@@ -189,7 +331,7 @@ form.active > a.toggle-new-card {
   color: #939393;
 }
 .new > a:hover{
- background-color: #c3c3c3; 
+ background-color: #c3c3c3;
  color: #111;
  text-decoration: underline;
 }

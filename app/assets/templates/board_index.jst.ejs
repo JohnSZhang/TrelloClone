@@ -1,8 +1,10 @@
 <ul class="boards">
 <% boards.forEach(function(board) { %>
-  <h1><a href="#/boards/<%= board.get("id") %>"><%= board.escape("title") %></a></h1>
-  <form>
-   <button data-id="<%= board.get("id") %>" class="delete-board">Delete!</button>
-  </form>
+  <li class="board">
+    <a href="#/boards/<%= board.get("id") %>"><%= board.escape("title") %></a>
+    <form>
+     <button data-id="<%= board.get("id") %>" class="delete-board btn btn-primary">Delete!</button>
+    </form>
+  </li>
 <% }) %>
 </ul>
